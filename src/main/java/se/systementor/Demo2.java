@@ -4,22 +4,29 @@ import java.util.ArrayList;
 
 public class Demo2 {
     
+
     public void run(){
+
         ArrayList<String> allaNamn = new ArrayList<>();
         allaNamn.add("Stefan");
         allaNamn.add("Josefine");
         allaNamn.add("Oliver1");
 
-        ArrayList<String> filtered = filterWithSevenOrMoreChars(allaNamn);
+
+        int minChars = Integer.parseInt(System.console().readLine());
+        ArrayList<String> filtered = filterWithMoreCharsThan(allaNamn, minChars);
+
+        //ArrayList<String> filtered = filterWithOrMoreChars(allaNamn, 12);
         for(String s : filtered){
             System.out.println(s);
         }
     }
 
-    public ArrayList<String> filterWithSevenOrMoreChars(ArrayList<String> input){
+    public ArrayList<String> filterWithMoreCharsThan(ArrayList<String> input, 
+                int minChars){
         ArrayList<String> result = new ArrayList<String>();
         for( String s : input){
-            if(s.length() >= 7){
+            if(s.length() >= minChars){
                 result.add(s);
             }
         }
